@@ -7,10 +7,12 @@ namespace OpenWeather
 {
     class Program
     {
+        private static object apiKey;
+
         static void Main(string[] args)
         {
             var key = File.ReadAllText("appsettings.json");
-            var apiKey = JObject.Parse(key).GetValue("apikey").ToString();
+            var apiKey = JObject.Parse(key).GetValue("default").ToString();
 
             Console.WriteLine("Plese enter your zip code: ");
             var zip_code = Console.ReadLine();
